@@ -5,7 +5,7 @@ export default defineConfig({
   markdown: {
     shikiConfig: {
       theme: 'light-plus',
-       langs: [],
+      langs: [],
       wrap: true,
     }
   }

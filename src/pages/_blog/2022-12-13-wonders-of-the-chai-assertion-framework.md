@@ -2,6 +2,7 @@
 title: Chai アサーション フレームワークの不思議
 ---
 
+
 現在関わっているJavaScriptの仕事でのテストコードは[Mocha](https://github.com/mochajs/mocha) + [Chai](https://github.com/chaijs/chai)を使って書いています。
 [Chai](https://github.com/chaijs/chai)のBDDスタイルでは
 
