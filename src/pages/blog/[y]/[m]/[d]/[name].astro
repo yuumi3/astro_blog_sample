@@ -1,0 +1,29 @@
+---
+import Layout from '@layouts/Layout.astro';
+import { blogParms } from '@utils/BlogPath';
+
+export async function getStaticPaths() {
+  const posts = await Astro.glob('/src/pages/_blog/*.md');
+
+  const paths = posts.map(post => {
+    return {
+      params: blogParms(post),
+      props: { post: post.compiledContent(), title: post.frontmatter.title}
+    };
+  })
+
+  return paths;
+}
+
+
+const { y, m, d } = Astro.params;
+const { post, title } = Astro.props;
+
+---
+
+<Layout title={title}>
+  <p style="color: gray">{y}-{m}-{d}</p>
+  <h1>{title}</h1>
+  <hr/>
+  <div set:html={post} />
+</Layout>

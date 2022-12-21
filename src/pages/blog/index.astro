@@ -1,0 +1,17 @@
+---
+import Layout from '@layouts/Layout.astro';
+import { blogUrl, blogParms } from '@utils/BlogPath';
+
+const posts = await Astro.glob('/src/pages/_blog/*.md');
+
+---
+
+<Layout title="Blog list">
+  <ul>
+    {posts.map(p => {
+      const {y,m,d} = blogParms(p)
+      return (<li> {`${y}-${m}-${d}`} :  <a href={blogUrl(p)}> {p.frontmatter.title} </a></li>);
+    })}
+  </ul>
+</Layout>
+
